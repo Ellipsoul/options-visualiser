@@ -4,6 +4,7 @@ import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Metadata } from 'next';
 import { NavBar } from './(app)/Navbar/Navbar';
 import { theme } from '@/theme';
+import { Footer } from './(app)/Footer/Footer';
 
 export const metadata: Metadata = {
   title: 'Mantine Next.js template',
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MantineProvider theme={theme}>
           <NavBar />
           {children}
+          <Footer />
         </MantineProvider>
       </body>
     </html>
