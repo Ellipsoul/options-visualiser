@@ -1,9 +1,11 @@
 import '@mantine/core/styles.css';
 import React from 'react';
-import { MantineProvider, ColorSchemeScript } from '@mantine/core';
-import { theme } from '../theme';
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { Metadata } from 'next';
+import { NavBar } from './(app)/Navbar/Navbar';
+import { theme } from '@/theme';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Mantine Next.js template',
   description: 'I am using Mantine with Next.js!',
 };
@@ -20,7 +22,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          <NavBar />
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );
