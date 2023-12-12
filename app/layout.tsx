@@ -7,8 +7,8 @@ import { theme } from '@/theme';
 import { Footer } from './(app)/Footer/Footer';
 
 export const metadata: Metadata = {
-  title: 'Mantine Next.js template',
-  description: 'I am using Mantine with Next.js!',
+  title: 'Options Visualiser',
+  description: 'TODO',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>
+        <MantineProvider theme={theme} defaultColorScheme="auto">
           <NavBar />
           {children}
           <Footer />

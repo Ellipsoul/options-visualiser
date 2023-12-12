@@ -1,22 +1,18 @@
-'use client';
+import { createTheme } from '@mantine/core';
+import { Inter, Source_Code_Pro } from 'next/font/google';
 
-import { MantineColorsTuple, createTheme } from '@mantine/core';
+const inter = Inter({ subsets: ['latin'] });
+const sourceCodePro = Source_Code_Pro({ subsets: ['latin'] });
 
-const colorTheme: MantineColorsTuple = [
-  '#e1f9ff',
-  '#ccedff',
-  '#9ad7ff',
-  '#64c1ff',
-  '#3baefe',
-  '#20a2fe',
-  '#099cff',
-  '#0088e4',
-  '#0078cd',
-  '#0069b6',
-];
-
+// Defines the mantine theme
 export const theme = createTheme({
-  colors: {
-    colorTheme,
-  },
+  focusRing: 'auto', // Focus ring is only visible on keyboard focus
+  scale: 1, // Scaling font size with rem units
+  fontSmoothing: true,
+  white: '#FFFFFF',
+  black: '#000000',
+  primaryShade: { light: 6, dark: 8 }, // Default values for color shades
+  primaryColor: 'cyan',
+  fontFamily: inter.style.fontFamily,
+  fontFamilyMonospace: sourceCodePro.style.fontFamily,
 });

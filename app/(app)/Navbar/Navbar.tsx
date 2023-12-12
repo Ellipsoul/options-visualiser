@@ -28,6 +28,7 @@ import {
   IconChevronDown,
 } from '@tabler/icons-react';
 import { MantineLogo } from '@mantinex/mantine-logo';
+import { usePathname } from 'next/navigation';
 import classes from './Navbar.module.css';
 
 type User = {
@@ -48,7 +49,7 @@ type Tab = {
 };
 
 const tabs: Tab[] = [
-  { name: 'Home', route: '/home' },
+  { name: 'Home', route: '/' },
   { name: 'Orders', route: '/orders' },
   { name: 'Education', route: '/education' },
   { name: 'Community', route: '/community' },
@@ -58,7 +59,20 @@ const tabs: Tab[] = [
   { name: 'Helpdesk', route: '/helpdesk' },
 ];
 
+const pathToNameMap: Record<string, string> = {
+  '/': 'Home',
+  '/orders': 'Orders',
+  '/education': 'Education',
+  '/community': 'Community',
+  '/forums': 'Forums',
+  '/support': 'Support',
+  '/account': 'Account',
+  '/helpdesk': 'Helpdesk',
+};
+
 export function NavBar(): JSX.Element {
+  const pathName = usePathname();
+
   const theme = useMantineTheme();
   const [opened, { toggle }] = useDisclosure(false);
   const [userMenuOpened, setUserMenuOpened] = useState<boolean>(false);
@@ -178,7 +192,7 @@ export function NavBar(): JSX.Element {
       </Container>
       <Container size="md">
         <Tabs
-          defaultValue="Home"
+          value={pathToNameMap[pathName]}
           variant="outline"
           visibleFrom="sm"
           classNames={{
